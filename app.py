@@ -10,6 +10,8 @@ import dotenv
 
 dotenv.load_dotenv(override=True)
 
+OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]
+
 
 def extract_video_id(youtube_url):
     match = re.search(r"(?:v=|\/)([0-9A-Za-z_-]{11}).*", youtube_url)
@@ -38,7 +40,7 @@ Return a concise summary of the transcript.
     response = requests.post(
         url="https://openrouter.ai/api/v1/chat/completions",
         headers={
-            "Authorization": f"Bearer {os.getenv('OPENROUTER_API_KEY')}",
+            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
             "Content-Type": "application/json",
         },
         data=json.dumps(
@@ -79,7 +81,7 @@ An example response is below:
     response = requests.post(
         url="https://openrouter.ai/api/v1/chat/completions",
         headers={
-            "Authorization": f"Bearer {os.getenv('OPENROUTER_API_KEY')}",
+            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
             "Content-Type": "application/json",
         },
         data=json.dumps(
@@ -131,7 +133,7 @@ An example response is below:
     response = requests.post(
         url="https://openrouter.ai/api/v1/chat/completions",
         headers={
-            "Authorization": f"Bearer {os.getenv('OPENROUTER_API_KEY')}",
+            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
             "Content-Type": "application/json",
         },
         data=json.dumps(
