@@ -5,10 +5,6 @@ from pdfminer.high_level import extract_text
 import requests
 import re
 import json
-import os
-import dotenv
-
-dotenv.load_dotenv(override=True)
 
 OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]
 
